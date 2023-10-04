@@ -1,16 +1,30 @@
+<!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>unchi!!!!</title>
     </head>
     <body>
         <h1>Do youi like unchi???</h1>
         
         <h2>ゆいいいいい</h2>
-        <form class="" action="" method="post" enctype="multipart/form-data">
+        <form method='POST'>
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" name="submit">Submit</button>
+            {% for per_form in form %}
+                うんこ
+                {{ per_form }}
+                ち
+                <br>
+            {% endfor %}
+            {{ form.management_form }}
+            <button name="btn_submit" type="submit">
+                送信する
+            </button>
+            <button name="btn_add" type="submit">
+                追加する
+            </button>
         </form>
         
         
