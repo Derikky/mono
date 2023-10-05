@@ -27,8 +27,29 @@
             </button>
         </form>
         
-        
-        
+        {% if total_prices %}
+            <h2>合計金額</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>合計金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name, price in total_prices.items %}
+                        <tr>
+                            <td>{{ name }}</td>
+                            <td>{{ price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        {% if all_total %}
+            <h2>合計金額（全商品）</h2>
+            <p>{{ all_total }}</p>
+        {% endif %}
         
         
     </body>

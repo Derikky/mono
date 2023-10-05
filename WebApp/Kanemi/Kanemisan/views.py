@@ -38,4 +38,21 @@ class IndexView(FormView):
             FORM_VALUES = request.POST.copy()  # リクエストの内容をコピー
             FORM_VALUES['form-TOTAL_FORMS'] = FORM_NUM   # フォーム数を上書き
         
+        elif 'btn_submit' in request.POST:
+            formset = self.get_form()
+            if formset.is_valid():
+                total_prices = {}  # 商品ごとの合計金額を保持する辞書
+                all_total = 0  # 全商品の合計金額
+                for form in formset:
+                    if form.cleaned_data.get('name'):
+                        name = form.cleaned_data.get('name')
+                        price = form.cleaned_data.get('price') or 0  # 単品価格が入力されていない場合は0として計算
+                        amount = form.cleaned_data.get('amount') or 0  # 数量が入力されていない場合は0として計算
+                        total = price * amount
+                        total_prices[name] = total_prices.get(name, 0) + total
+                        all_total += total
+
+            # 合計金額をテンプレートに渡す
+                return self.render_to_response(self.get_context_data(formset=formset, total_prices=total_prices, all_total=all_total))
+        
         return super().post(request, args, kwargs)
