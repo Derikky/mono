@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
+    {% load static %} 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>お買い物</title>
-    </head>
-    <body>
-        <h1>お買い物の金見さん</h1>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <title>お買い物</title> 
         
-        <h2>入力リスト</h2>
-        <form method='POST'>
+    </head>
+
+    <body>
+        <header>
+            <div class="title">お買い物の金見さん</div>
+            <div style="position:absolute; top:12px; left:382px" >
+            <img src="{% static 'images/usericon.png' %}" alt="例の画像">
+            </div>
+  
+        </header>
+            <h2>入力リスト</h2s>
+            <form method='POST'>
             {% csrf_token %}
             {% for per_form in form %}
                 
@@ -20,12 +29,12 @@
             {% endfor %}
             {{ form.management_form }}
             <button name="btn_submit" type="submit">
-                送信する
+                送信する!!
             </button>
             <button name="btn_add" type="submit">
                 追加する
             </button>
-        </form>
+            </form>
         
         {% if total_prices %}
             <h2>合計金額</h2>
@@ -49,8 +58,6 @@
         {% if all_total %}
             <h2>合計金額（全商品）</h2>
             <p>{{ all_total }}</p>
-        {% endif %}
-        
-        
+         {% endif %}
     </body>
 </html>

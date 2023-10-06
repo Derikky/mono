@@ -2,6 +2,8 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
 from django import forms
 from .forms import ThingsForm
+from django.shortcuts import render
+
 
 
 #FORM_NUM = 1      # フォーム数
@@ -56,3 +58,6 @@ class IndexView(FormView):
                 return self.render_to_response(self.get_context_data(formset=formset, total_prices=total_prices, all_total=all_total))
         
         return super().post(request, args, kwargs)
+
+def my_view(request):
+    return render(request, 'myapp/mytemplate.html', {})

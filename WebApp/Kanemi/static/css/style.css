@@ -1,0 +1,41 @@
+body{
+    /* Layout Properties */
+    top: 0px;
+    left: 0px;
+    width: 430px;
+    height: 3000px;
+    /* UI Properties */
+    background: #E5E5E5 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.title {
+  /* UI Properties */
+  text-align:center;
+  padding:20px 0;
+  font: normal normal normal 20px/24px HGPSoeiKakugothicUB;
+  letter-spacing: 0.4px;
+  color: #000000;
+  opacity: 0.45;
+  }
+
+header {
+    top: 0px;
+    left: 0px;
+    width: 430px;
+    height: 70px;
+
+    background: #A8EDCB 0% 0% no-repeat padding-box;
+    opacity: 1;
+  }
+img {
+   width: 36.18px;
+   height: 36px;
+}
+
+   
+  .menu-item {
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+  }
